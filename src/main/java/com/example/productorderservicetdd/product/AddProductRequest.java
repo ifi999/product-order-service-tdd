@@ -1,7 +1,9 @@
 package com.example.productorderservicetdd.product;
 
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
+@NoArgsConstructor
 class AddProductRequest {
 
     private String name;

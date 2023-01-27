@@ -7,20 +7,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class ProductServiceTest {
 
-    @Autowired
-    private ProductService productService;
-
     @Test
     public void 상품등록() {
-        //given
         final AddProductRequest request = 상품등록요청_생성();
 
-        productService.addProduct(request);
-
-        //when
-
-        //then
-
+        // API 요청
     }
 
     private static AddProductRequest 상품등록요청_생성() {

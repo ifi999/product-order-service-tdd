@@ -4,4 +4,6 @@ import org.springframework.stereotype.Component;
 
 interface ProductPort {
     void save(Product product);
+
+    Product getProduct(long productId);
 }

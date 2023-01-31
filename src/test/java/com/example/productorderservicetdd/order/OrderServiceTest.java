@@ -14,16 +14,17 @@ public class OrderServiceTest {
     @Autowired
     private ProductService productService;
 
-    @Test
-    public void 상품주문() {
-        productService.addProduct(ProductSteps.상품등록요청_생성());
+    // ProductServiceTest와 마찬가지로 API 테스트부터는 이 serviceTest 내용이 굳이 필요없어지나보다
+//    @Test
+//    public void 상품주문() {
+//        productService.addProduct(ProductSteps.상품등록요청_생성());
+//
+//        CreateOrderRequest request = 상품주문요청_생성();
+//
+//        orderService.createOrder(request);
+//    }
 
-        CreateOrderRequest request = 상품주문요청_생성();
-
-        orderService.createOrder(request);
-    }
-
-    private static CreateOrderRequest 상품주문요청_생성() {
+    public static CreateOrderRequest 상품주문요청_생성() {
         Long productId = 1L;
         int quantity = 2;
         return new CreateOrderRequest(productId, quantity);

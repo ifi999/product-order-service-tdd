@@ -1,12 +1,26 @@
 package com.example.productorderservicetdd.order;
 
 import com.example.productorderservicetdd.product.Product;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Table(name = "orders")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 class Order {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
     private Product product;
+
     private int quantity;
 
     public Order(Product product, int quantity) {
@@ -15,21 +29,5 @@ class Order {
 
         this.product = product;
         this.quantity = quantity;
-    }
-
-    public void assignId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 }

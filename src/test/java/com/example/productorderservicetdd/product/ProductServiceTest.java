@@ -5,23 +5,22 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.Assertions.*;
 
-@ExtendWith(MockitoExtension.class)
+//@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 public class ProductServiceTest {
 
-//    @Autowired
+    @Autowired
     private ProductService productService;
 //    private StubProductPort productPort = new StubProductPort();
-    private ProductPort productPort;
 
-    @BeforeEach
-    void setUp() {
-        productPort = Mockito.mock(ProductPort.class);
-        productService = new ProductService(productPort);
-    }
+    @Autowired
+    private ProductPort productPort;
 
     // getMapping까지 만들고나서부터는 이 ServiceTest는 필요가 없어진다.
     // 그래서 영상에서는 이 클래스를 삭제해버림
@@ -60,14 +59,17 @@ public class ProductServiceTest {
 
     @Test
     public void 상품수정_mockito() {
+        productService.addProduct(ProductSteps.상품등록요청_생성());
+
         final Long productId = 1L;
         final UpdateProductRequest request = new UpdateProductRequest("상품 수정", 2000, DiscountPolicy.NONE);
-        Product product = new Product("상품명", 1000, DiscountPolicy.NONE);
-        Mockito.when(productPort.getProduct(productId)).thenReturn(product);
 
         productService.updateProduct(productId, request);
 
-        assertThat(product.getName()).isEqualTo("상품 수정");
+        ResponseEntity<GetProductResponse> response = productService.getProduct(productId);
+        GetProductResponse productResponse = response.getBody();
+
+        assertThat(productResponse.getName()).isEqualTo("상품 수정");
     }
 
 //    private static class StubProductPort implements ProductPort {

@@ -38,12 +38,16 @@ class ProductService {
         return ResponseEntity.ok(response);
     }
 
-    public void updateProduct(Long productId, UpdateProductRequest request) {
+    @PatchMapping("/{productId}")
+    @Transactional
+    public ResponseEntity<Void> updateProduct(@PathVariable Long productId, @RequestBody UpdateProductRequest request) {
         Product product = productPort.getProduct(productId);
 
         product.update(request.getName(), request.getPrice(), request.getDiscountPolicy());
 
         // TODO - save를 해야하나? 위에서 변경감지로 안끝나는가?
         productPort.save(product);
+
+        return ResponseEntity.ok().build();
     }
 }

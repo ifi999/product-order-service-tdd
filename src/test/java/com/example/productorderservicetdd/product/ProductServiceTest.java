@@ -1,10 +1,6 @@
 package com.example.productorderservicetdd.product;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +38,7 @@ public class ProductServiceTest {
     @Test
     public void 상품수정() {
         final Long productId = 1L;
-        final UpdateProductRequest request = new UpdateProductRequest("상품 수정", 2000, DiscountPolicy.NONE);
+        final UpdateProductRequest request = ProductSteps.상품수정요청_생성();
         Product product = new Product("상품명", 1000, DiscountPolicy.NONE);
         
         // Mockito 때문에 StubProductPort 주석쳐서 여기도 못쓰게 됨
@@ -62,7 +58,7 @@ public class ProductServiceTest {
         productService.addProduct(ProductSteps.상품등록요청_생성());
 
         final Long productId = 1L;
-        final UpdateProductRequest request = new UpdateProductRequest("상품 수정", 2000, DiscountPolicy.NONE);
+        final UpdateProductRequest request = ProductSteps.상품수정요청_생성();
 
         productService.updateProduct(productId, request);
 
@@ -72,7 +68,7 @@ public class ProductServiceTest {
         assertThat(productResponse.getName()).isEqualTo("상품 수정");
     }
 
-//    private static class StubProductPort implements ProductPort {
+    //    private static class StubProductPort implements ProductPort {
 //        public Product getProduct_will_return;
 //
 //        @Override

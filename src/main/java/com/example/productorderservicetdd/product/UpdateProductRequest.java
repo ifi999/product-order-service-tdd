@@ -1,9 +1,11 @@
 package com.example.productorderservicetdd.product;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
 @Getter
+@NoArgsConstructor
 class UpdateProductRequest {
     private String name;
     private int price;

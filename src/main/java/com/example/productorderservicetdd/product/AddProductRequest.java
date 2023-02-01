@@ -4,7 +4,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
 @NoArgsConstructor
-class AddProductRequest {
+public class AddProductRequest {
 
     private String name;
     private int price;

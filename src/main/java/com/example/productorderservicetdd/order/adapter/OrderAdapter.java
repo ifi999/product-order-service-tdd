@@ -1,11 +1,13 @@
-package com.example.productorderservicetdd.order;
+package com.example.productorderservicetdd.order.adapter;
 
-import com.example.productorderservicetdd.product.Product;
-import com.example.productorderservicetdd.product.ProductRepository;
+import com.example.productorderservicetdd.order.app.port.OrderPort;
+import com.example.productorderservicetdd.order.domain.Order;
+import com.example.productorderservicetdd.product.domain.Product;
+import com.example.productorderservicetdd.product.adapter.ProductRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-class OrderAdapter implements OrderPort {
+public class OrderAdapter implements OrderPort {
 
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;

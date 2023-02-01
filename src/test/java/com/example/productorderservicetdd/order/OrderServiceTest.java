@@ -1,8 +1,8 @@
 package com.example.productorderservicetdd.order;
 
-import com.example.productorderservicetdd.product.ProductService;
-import com.example.productorderservicetdd.product.ProductSteps;
-import org.junit.jupiter.api.Test;
+import com.example.productorderservicetdd.order.app.service.CreateOrderRequest;
+import com.example.productorderservicetdd.order.app.service.OrderService;
+import com.example.productorderservicetdd.product.app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

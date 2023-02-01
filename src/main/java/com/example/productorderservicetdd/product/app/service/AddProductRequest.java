@@ -1,5 +1,6 @@
-package com.example.productorderservicetdd.product;
+package com.example.productorderservicetdd.product.app.service;
 
+import com.example.productorderservicetdd.product.domain.DiscountPolicy;
 import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 

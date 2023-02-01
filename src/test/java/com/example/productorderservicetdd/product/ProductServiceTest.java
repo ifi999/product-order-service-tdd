@@ -1,5 +1,11 @@
 package com.example.productorderservicetdd.product;
 
+import com.example.productorderservicetdd.product.app.port.ProductPort;
+import com.example.productorderservicetdd.product.app.service.GetProductResponse;
+import com.example.productorderservicetdd.product.app.service.ProductService;
+import com.example.productorderservicetdd.product.app.service.UpdateProductRequest;
+import com.example.productorderservicetdd.product.domain.DiscountPolicy;
+import com.example.productorderservicetdd.product.domain.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

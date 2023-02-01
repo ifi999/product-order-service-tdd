@@ -1,4 +1,4 @@
-package com.example.productorderservicetdd.payment;
+package com.example.productorderservicetdd.payment.app.service;
 
 import org.springframework.util.Assert;
 

@@ -1,10 +1,10 @@
 package com.example.productorderservicetdd.product;
 
-import org.assertj.core.api.Assertions;
+import com.example.productorderservicetdd.product.domain.DiscountPolicy;
+import com.example.productorderservicetdd.product.domain.Product;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ProductTest {
 

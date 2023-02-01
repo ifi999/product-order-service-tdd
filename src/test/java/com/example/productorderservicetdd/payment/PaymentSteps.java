@@ -1,5 +1,6 @@
 package com.example.productorderservicetdd.payment;
 
+import com.example.productorderservicetdd.payment.app.service.PaymentRequest;
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;

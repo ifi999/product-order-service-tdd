@@ -1,12 +1,13 @@
-package com.example.productorderservicetdd.product;
+package com.example.productorderservicetdd.product.app.service;
 
+import com.example.productorderservicetdd.product.domain.DiscountPolicy;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
 @Getter
 @NoArgsConstructor
-class UpdateProductRequest {
+public class UpdateProductRequest {
     private String name;
     private int price;
     private DiscountPolicy discountPolicy;

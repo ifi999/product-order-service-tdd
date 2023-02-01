@@ -1,8 +1,9 @@
-package com.example.productorderservicetdd.product;
+package com.example.productorderservicetdd.product.app.service;
 
+import com.example.productorderservicetdd.product.domain.DiscountPolicy;
 import org.springframework.util.Assert;
 
-class GetProductResponse {
+public class GetProductResponse {
 
     private long id;
     private String name;

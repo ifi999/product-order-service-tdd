@@ -19,13 +19,14 @@ public class PaymentServiceTest {
     @Autowired
     private PaymentService paymentService;
 
-    @Test
-    public void 상품주문() {
-        productService.addProduct(ProductSteps.상품등록요청_생성());
-        orderService.createOrder(OrderSteps.상품주문요청_생성());
-        PaymenyRequest request = PaymentSteps.주문결제요청_생성();
-
-        paymentService.payment(request);
-    }
+    // API 테스트로 전환
+//    @Test
+//    public void 상품주문() {
+//        productService.addProduct(ProductSteps.상품등록요청_생성());
+//        orderService.createOrder(OrderSteps.상품주문요청_생성());
+//        PaymenyRequest request = PaymentSteps.주문결제요청_생성();
+//
+//        paymentService.payment(request);
+//    }
 
 }

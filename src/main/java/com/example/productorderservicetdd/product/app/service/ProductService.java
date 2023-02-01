@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/products")
 public class ProductService {
@@ -27,9 +30,18 @@ public class ProductService {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    // TODO - 만약에 HttpServletRequest 같은 것을 받아서 사용하는데 어떻게 테스트하지??
+    // 아래 해결 방법 적었으나, 굳이 구현하지 않음. 추후 프로젝트에 반영해보기
     @GetMapping("/{productId}")
-    public ResponseEntity<GetProductResponse> getProduct(@PathVariable long productId) {
-        final Product product = productPort.getProduct(productId);
+    public ResponseEntity<GetProductResponse> getProduct(@PathVariable long productId, HttpServletRequest request) {
+        Cookie cookie = request.getCookies()[0];
+        String name = cookie.getName();
+        return getProduct(productId, name);
+    }
+
+    // 이렇게 분리해내서 순수 자바로 만들고 테스트
+    ResponseEntity<GetProductResponse> getProduct(long productId, String name) {
+        final Product product = productPort.getProduct(productId, name);
 
         GetProductResponse response = new GetProductResponse(
                 product.getId()

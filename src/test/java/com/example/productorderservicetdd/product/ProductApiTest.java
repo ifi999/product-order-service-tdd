@@ -34,7 +34,7 @@ public class ProductApiTest extends ApiTest {
         ExtractableResponse<Response> response = ProductSteps.상품조회요청(productId);
 
         assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
-        assertThat(response.jsonPath().getString("name")).isEqualTo("상품명 ");
+        assertThat(response.jsonPath().getString("name")).isEqualTo("상품명");
     }
 
     @Test

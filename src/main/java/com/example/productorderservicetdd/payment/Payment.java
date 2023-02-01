@@ -1,10 +1,23 @@
 package com.example.productorderservicetdd.payment;
 
 import com.example.productorderservicetdd.order.Order;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.util.Assert;
 
+import javax.persistence.*;
+
+@Getter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Payment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY)
     private Order order;
     private String cardNumber;
 
@@ -14,22 +27,6 @@ public class Payment {
 
         this.order = order;
         this.cardNumber = cardNumber;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public String getCardNumber() {
-        return cardNumber;
-    }
-
-    public void assignId(Long id) {
-        this.id = id;
     }
 
     public int getPrice() {
